@@ -1,9 +1,8 @@
 import { Event } from './Event';
 import { Plan } from './Plan';
 import { User } from './User';
+import { Session } from './Session';
 
-export { Event } from './Event';
-export { Plan } from './Plan';
-export { User } from './User';
+export { Event, Plan, User, Session };
 
-export const entities = [User, Plan, Event];
+export const entities = [User, Plan, Event, Session];
