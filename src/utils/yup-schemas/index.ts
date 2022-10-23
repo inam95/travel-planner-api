@@ -6,3 +6,11 @@ export const registerUserSchema = yup.object({
     password: yup.string().required().min(3).max(32)
   })
 });
+
+export const createPlanSchema = yup.object({
+  body: yup.object({
+    title: yup.string().required(),
+    date: yup.string().required(),
+    description: yup.string().required()
+  })
+});

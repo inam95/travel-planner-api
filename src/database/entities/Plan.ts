@@ -17,6 +17,12 @@ export class Plan {
   @Column()
   date: string;
 
+  @Column()
+  title: string;
+
+  @Column()
+  description: string;
+
   @ManyToOne(() => User, user => user.plans)
   user: User;
 

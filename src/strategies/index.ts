@@ -19,8 +19,6 @@ passport.deserializeUser(async (id: number, done) => {
 
 passport.use(
   new Strategy(async (username, password, done) => {
-    console.log('Inside passport strategy');
-    console.log({ username, password });
     try {
       const user = await findUser({ username }, { selectAll: true });
       if (!user) return done(null, null);

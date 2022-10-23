@@ -8,7 +8,7 @@ export const registerUserController = async (req: Request, res: Response) => {
   try {
     const user = await createUser({ username, password });
     res.status(201).send(instanceToPlain(user));
-  } catch (err) {
-    res.status(400).send({ err });
+  } catch (err: any) {
+    res.status(400).send({ error: err.message });
   }
 };

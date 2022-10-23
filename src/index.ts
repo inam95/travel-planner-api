@@ -5,6 +5,7 @@ import './strategies';
 import express from 'express';
 import passport from 'passport';
 import session from 'express-session';
+import cors from 'cors';
 import { TypeormStore } from 'connect-typeorm';
 
 import routes from './routes';
@@ -16,9 +17,15 @@ async function main() {
   const PORT = process.env.PORT || 3001;
   app.use(express.json());
   app.use(
+    cors({
+      origin: ['http://localhost:3000'],
+      credentials: true
+    })
+  );
+  app.use(
     session({
       name: 'TRAVEL_PLANNER_APP_SESSION_ID',
-      secret: 'asdfghjkl',
+      secret: 'session_secret',
       saveUninitialized: false,
       resave: false,
       cookie: {
