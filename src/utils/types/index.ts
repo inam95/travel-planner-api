@@ -16,3 +16,7 @@ export type CreatePlanParams = {
   date: string;
   user: User;
 };
+
+export type GetPlansParams = {
+  userId: number;
+};
