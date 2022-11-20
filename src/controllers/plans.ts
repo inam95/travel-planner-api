@@ -3,10 +3,10 @@ import { User } from '../database/entities';
 import { createPlanService, getPlansService } from '../services/plans';
 
 export const createPlansController = async (req: Request, res: Response) => {
-  const user = req.user;
+  const creator = req.user;
   const createPlanPayload = req.body;
   try {
-    const plan = await createPlanService({ ...createPlanPayload, user });
+    const plan = await createPlanService({ ...createPlanPayload, creator });
     res.status(201).send(plan);
   } catch (err: any) {
     console.log(err);

@@ -4,7 +4,8 @@ import {
   Column,
   ManyToOne,
   OneToMany,
-  JoinColumn
+  JoinColumn,
+  ManyToMany
 } from 'typeorm';
 import { Event } from './Event';
 import { User } from './User';
@@ -24,9 +25,12 @@ export class Plan {
   description: string;
 
   @ManyToOne(() => User, user => user.plans)
-  user: User;
+  creator: User;
 
   @OneToMany(() => Event, event => event.plan)
   @JoinColumn()
   events: Event[];
+
+  @ManyToMany(() => User, user => user.plans)
+  users: User[];
 }

@@ -10,6 +10,7 @@ export const findUser = (
   const select = getUserSelections(options?.selectAll);
   return UserRepository.findOne({
     where: params,
-    select
+    select,
+    relations: options?.relations
   });
 };
